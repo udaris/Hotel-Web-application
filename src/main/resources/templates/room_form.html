@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add New Room Details</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+</head>
+<body style="background-color: darkslategray">
+<div class="container-fluid text-center m-3">
+    <h2>Add New Room Details</h2>
+</div>
+
+<div class="row">
+    <div align="left" class="m-4">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdpCsoaTWlaEMsPVefxJcGtmjx5XRVtQQ1qA&usqp=CAU" alr="room" width="400">
+    </div>
+    <form th:action="@{/rooms/save}" method="post" th:object="${room}"
+          style="max-width: 500px;background-color: lightgray; margin: 0 auto">
+        <input type="hidden" th:field="*{id}">
+        <div class="border border-secondary rounded p-3'">
+
+            <div class="form-group row m-2">
+                <label class="col-sm-4 col-form-label">  Room Number :</label>
+                <div class="col-sm-8">
+                    <input type="text" th:field="*{roomnumber}" class="form-control" required minlength="1" maxlength="35">
+                </div>
+            </div>
+
+
+
+            <div class="form-group row m-2">
+                <label class="col-sm-4 col-form-label">  Room Type:</label>
+                <div class="col-sm-8">
+                    <input type="text" th:field="*{type}" class="form-control" required minlength="3" maxlength="35">
+                </div>
+            </div>
+
+            <div class="form-group row m-2">
+                <label class="col-sm-4 col-form-label">  Room Description </label>
+                <div class="col-sm-8">
+                    <input type="text" th:field="*{des}" class="form-control" required minlength="3" maxlength="35">
+                </div>
+            </div>
+
+            <div class="form-group row m-2">
+                <label class="col-sm-4 col-form-label">  Room Free :</label>
+                <div class="col-sm-8">
+                    <input type="text" th:field="*{free}" class="form-control" required minlength="3" maxlength="35">
+                </div>
+            </div>
+
+            <div class="form-group row m-2">
+                <label class="col-sm-4 col-form-label">  Room availability </label>
+                <div class="col-sm-8">
+                    <input type="text" th:field="*{availble}" class="form-control" required minlength="5" maxlength="12">
+                </div>
+            </div>
+
+
+
+
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary m-2">Save</button>
+                <button type="submit" class="btn btn-secondary m-2" onclick="cancelForm()">cancel</button>
+            </div>
+
+        </div>
+    </form>
+    <div align="left" class="m-4">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKvBUU2uJPBYEfy_YCR_7w8lySF-En_e5rEg&usqp=CAU" alr="room" width="400">
+    </div>
+</div>
+<div class="row">
+
+    <div align="left" class="m-4">
+        <img src="https://i.dailymail.co.uk/i/pix/2014/03/21/article-2586273-1C70009F00000578-145_634x401.jpg" alr="room" width="400">
+    </div>
+
+    <div align="right" class="m-4">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeJd6RgwHDbvC-isR-hwLDQ-G99lJPQ4yk6A&usqp=CAU" alr="room" width="800" height="260">
+    </div>
+    <div align="right" class="m-4">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIPyM0-F0biocwipc6G9FfKtqw-vUQV5GeaQ&usqp=CAU" alr="room" width="300" height="260">
+    </div>
+</div>
+<div align="left">
+    <button type="submit" class="btn btn-secondary m-2" onclick="back()" > < Back  </button>
+</div>
+<script type="text/javascript">
+    function cancelForm(){
+        window.location="[[@{/rooms}]]";
+    }
+</script>
+</body>
+</html>

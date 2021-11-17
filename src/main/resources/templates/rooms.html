@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Rooms Details</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+</head>
+<body style="background-color: mediumaquamarine">
+<div class="container-fluid text-center m-2">
+    <div>
+        <h1>Rooms Details</h1>
+    </div>
+
+
+    <div th:if="${message}" class="alert alert-success text-center">
+        [[${message}]]
+    </div>
+
+    <div class="m-3" style="background-color: aliceblue">
+        <table class="table table-bordered">
+            <thead class="thead-dark">
+            <tr>
+                <th>ID</th>
+                <th>Room Number</th>
+                <th>Room Type</th>
+                <th>Room Descriptions</th>
+                <th>Room Free</th>
+                <th>Room Availible</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <th:block th:each="user: ${listrooms}">
+                <tr>
+                    <td>[[${user.id}]]</td>
+                    <td>[[${user.roomnumber}]]</td>
+                    <td>[[${user.type}]]</td>
+                    <td>[[${user.des}]]</td>
+                    <td> [[${user.free}]]</td>
+                    <td>[[${user.availble}]]</td>
+                    <td>
+                        <a class="h6 mr-3" th:href="@{'/rooms/edit/' + ${user.id}}">Edit</a>
+                        <a class="h6" th:href="@{'/rooms/delete/' + ${user.id}}">Delete</a>
+                    </td>
+
+                </tr>
+            </th:block>
+            </tbody>
+        </table>
+    </div>
+    <div class="m-2">
+        <a class="h3" th:href="@{/rooms/new}">Add New Room Details</a>
+    </div>
+</div>
+<div class="row">
+
+    <div align="left" class="m-4">
+        <img src="https://design-milk.com/images/2019/06/Kota-Haawe-4710-2000x1333.jpg" alr="room" width="400">
+    </div>
+
+    <div align="right" class="m-4">
+        <img src="https://www.srilankaecotourism.lk/accomadation_img/96380.jpg" alr="room" width="800" height="260">
+    </div>
+    <div align="right" class="m-4">
+        <img src="https://i.dailymail.co.uk/i/pix/2014/03/21/article-2586273-1C70015D00000578-76_634x391.jpg" alr="room" width="300" height="260">
+    </div>
+</div>
+<div align="left">
+    <button type="submit" class="btn btn-secondary m-2" onclick="back()" > < Back  </button>
+</div>
+<script type="text/javascript">
+    function back(){
+        window.location="[[@{/}]]";
+    }
+</script>
+</body>
+</html>
